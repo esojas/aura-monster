@@ -33,7 +33,7 @@ public class PlayerAttack : MonoBehaviour
             GameObject knife = Instantiate(knifePrefab, knifeSpawnPos.position, Quaternion.identity);
             Rigidbody knifeRb = knife.GetComponent<Rigidbody>();
 
-            knifeRb.linearVelocity += new Vector3(knifeSpeed, 0, 0);
+            knifeRb.linearVelocity += new Vector3(0, 0, knifeSpeed);
             StartCoroutine(AttackCooldownCoroutine());
         }
         else

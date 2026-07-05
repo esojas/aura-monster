@@ -1,19 +1,21 @@
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerMovements : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
-    [SerializeField] private float interpolateMovementSpeed = 0.5f;
+    [SerializeField] private float interpolateMovementSpeed = 10f;
+    [SerializeField] private float gravity = -9.81f;
 
-    private Rigidbody rb;
+    private CharacterController controller;
     private PlayerControls playerControls;
     private Vector2 direction;
+    private Vector3 currentVelocity;
+    private float verticalVelocity;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
         playerControls = GetComponent<PlayerControls>();
     }
 
@@ -34,30 +36,33 @@ public class PlayerMovements : MonoBehaviour
 
     private void HandleMovement()
     {
+        Vector3 targetVelocity = new Vector3(direction.x, 0, direction.y) * movementSpeed;
 
-        float targetX = movementSpeed * direction.x;
-        float targetY = rb.linearVelocity.y;
-        float targetZ = movementSpeed * direction.y;
+        currentVelocity.x = Mathf.Lerp(currentVelocity.x, targetVelocity.x, interpolateMovementSpeed * Time.fixedDeltaTime);
+        currentVelocity.z = Mathf.Lerp(currentVelocity.z, targetVelocity.z, interpolateMovementSpeed * Time.fixedDeltaTime);
 
-        rb.linearVelocity = new Vector3(
-            Mathf.Lerp(rb.linearVelocity.x, targetX, interpolateMovementSpeed),
-            Mathf.Lerp(rb.linearVelocity.y, targetY, interpolateMovementSpeed),
-            Mathf.Lerp(rb.linearVelocity.z, targetZ, interpolateMovementSpeed)
-        );
+        if (controller.isGrounded && verticalVelocity < 0)
+        {
+            verticalVelocity = -2f; // small downward force to keep grounded flag reliable
+        }
+        else
+        {
+            verticalVelocity += gravity * Time.fixedDeltaTime;
+        }
 
+        currentVelocity.y = verticalVelocity;
+
+        controller.Move(currentVelocity * Time.fixedDeltaTime);
     }
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
