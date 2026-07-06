@@ -30,10 +30,11 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!attackIsCooldown)
         {
-            GameObject knife = Instantiate(knifePrefab, knifeSpawnPos.position, Quaternion.identity);
+            GameObject knife = Instantiate(knifePrefab, knifeSpawnPos.position, knifeSpawnPos.rotation);
             Rigidbody knifeRb = knife.GetComponent<Rigidbody>();
 
-            knifeRb.linearVelocity += new Vector3(0, 0, knifeSpeed);
+
+            knifeRb.linearVelocity = knife.transform.forward * knifeSpeed;
             StartCoroutine(AttackCooldownCoroutine());
         }
         else
