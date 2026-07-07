@@ -5,6 +5,8 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private GameObject knifePrefab;
     [SerializeField] private float knifeSpeed;
+    [SerializeField] private float knifeDamage;
+    public float getKnifeDamage => knifeDamage;
     [SerializeField] private Transform knifeSpawnPos;
     [SerializeField] private float knifeCooldown = .01f;
 
@@ -33,6 +35,9 @@ public class PlayerAttack : MonoBehaviour
             GameObject knife = Instantiate(knifePrefab, knifeSpawnPos.position, knifeSpawnPos.rotation);
             Rigidbody knifeRb = knife.GetComponent<Rigidbody>();
 
+            KnifeProjectile knifeProjectile = knife.GetComponent<KnifeProjectile>();
+
+            knifeProjectile.SetDamage(knifeDamage);
 
             knifeRb.linearVelocity = knife.transform.forward * knifeSpeed;
             StartCoroutine(AttackCooldownCoroutine());
