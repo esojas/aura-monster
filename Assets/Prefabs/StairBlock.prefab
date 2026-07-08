@@ -1958,7 +1958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4bb5dcdf42a4b84a91cb6fea370be9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnBlockScript
-  stairBlockPrefab: {fileID: 3303474525612889337}
+  prefabController: {fileID: 9046106487507223471, guid: 9d62c7a2c43231948ab164525672e2a8, type: 3}
   nextSpawnLocation: {fileID: 736987252728567980}
 --- !u!1 &6801289532846659577
 GameObject:
@@ -2022,7 +2022,12 @@ MonoBehaviour:
   - {fileID: 7649348134315265146}
   enemyDataArray:
   - {fileID: 11400000, guid: 45708480056978a4790f87d469892983, type: 2}
-  obstacleSpawnProbability: 0.6
+  - {fileID: 11400000, guid: 109ff2fac5525c54e80ace6a6a897468, type: 2}
+  - {fileID: 11400000, guid: d3184edbcccc10a4290fbe6fb005832f, type: 2}
+  - {fileID: 11400000, guid: ace4d2e0440d640478f565f7d38d24ee, type: 2}
+  - {fileID: 11400000, guid: 9459964cdf1f79e459610292a158b5b0, type: 2}
+  - {fileID: 11400000, guid: b1f2c7cd29bdbab4f976992ac9d4aafa, type: 2}
+  obstacleSpawnProbability: 0.2
   obstaclePrefab: {fileID: 2801564962279792708, guid: 1dcf2358891641745ad20759770260fb, type: 3}
 --- !u!1 &7283023593418154076
 GameObject:

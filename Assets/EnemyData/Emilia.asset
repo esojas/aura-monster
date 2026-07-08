@@ -18,4 +18,4 @@ MonoBehaviour:
   enemyAttackCooldown: 2
   enemyAttackSpeed: 8
   enemyAttackPrefab: {fileID: 4180887262053832644, guid: 402b0c632fe26754686d8722af75e68e, type: 3}
-  spawnProbability: 100
+  spawnProbability: 30

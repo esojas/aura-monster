@@ -10,23 +10,32 @@ public class PlayerControls : MonoBehaviour
     public event Action<Vector2> OnMove;
     public event Action OnAttackPressed;
     public event Action OnAttackReleased;
+    public event Action OnJumpPressed;
+    public event Action OnJumpReleased;
 
     private InputAction moveAction;
     private InputAction attackAction;
+    private InputAction jumpAction;
 
     private Action<InputAction.CallbackContext> onMovePerformed;
     private Action<InputAction.CallbackContext> onMoveCancelled;
     private Action<InputAction.CallbackContext> onAttackPerformed;
     private Action<InputAction.CallbackContext> onAttackCancelled;
+    private Action<InputAction.CallbackContext> onJumpPerformed;
+    private Action<InputAction.CallbackContext> onJumpCancelled;
 
     private void Awake()
     {
         moveAction = InputSystem.actions.FindAction("Move");
         attackAction = InputSystem.actions.FindAction("Attack");
+        jumpAction = InputSystem.actions.FindAction("Jump");
 
 
         onMovePerformed = ctx => OnMove?.Invoke(ctx.ReadValue<Vector2>());
         onMoveCancelled = ctx => OnMove?.Invoke(Vector2.zero);
+
+        onJumpPerformed = ctx => OnJumpPressed?.Invoke();
+        onJumpCancelled = ctx => OnJumpReleased?.Invoke();
 
         onAttackPerformed = ctx => OnAttackPressed?.Invoke();
         onAttackCancelled = ctx => OnAttackReleased?.Invoke();
@@ -38,6 +47,8 @@ public class PlayerControls : MonoBehaviour
         moveAction.canceled += onMoveCancelled;
         attackAction.performed += onAttackPerformed;
         attackAction.canceled += onAttackCancelled;
+        jumpAction.performed += onJumpPerformed;
+        jumpAction.canceled += onJumpCancelled;
     }
 
     private void OnDisable()
@@ -46,6 +57,8 @@ public class PlayerControls : MonoBehaviour
         moveAction.canceled -= onMoveCancelled;
         attackAction.performed -= onAttackPerformed;
         attackAction.canceled -= onAttackCancelled;
+        jumpAction.performed -= onJumpPerformed;
+        jumpAction.canceled -= onJumpCancelled;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

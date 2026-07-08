@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0e0521788815b4ba6dc1fa5c1feaf3, type: 3}
+  m_Name: Meili
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  enemyPrefab: {fileID: 5555380100468816658, guid: c9c6970f214a0b84eb254f968238c318, type: 3}
+  enemyHealth: 1000
+  enemyAttackDamage: 60
+  enemyAttackCooldown: 5
+  enemyAttackSpeed: 15
+  enemyAttackPrefab: {fileID: 9148347787362785046, guid: 185ceb140a0a0924f93d62e3aeef3bdc, type: 3}
+  spawnProbability: 30

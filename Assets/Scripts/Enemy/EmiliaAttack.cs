@@ -18,7 +18,7 @@ public class EmiliaAttack : EnemyAttack
             GameObject projectile = Instantiate(enemyAttackPrefab, projectileSpawnPos.position, projectileSpawnPos.rotation);
             Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
 
-            DamageColliderScript damageColliderScript = projectileRb.GetComponent<DamageColliderScript>();
+            DamageColliderScript damageColliderScript = projectile.GetComponent<DamageColliderScript>();
 
             damageColliderScript.damage = enemyAttackDamage;
 
