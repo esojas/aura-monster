@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Emilia
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyPrefab: {fileID: 5555380100468816658, guid: 96b0ed919e7d305439ea7b7a699b34ce, type: 3}
+  enemyScore: 30
   enemyHealth: 100
   enemyAttackDamage: 60
   enemyAttackCooldown: 2

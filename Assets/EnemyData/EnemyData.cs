@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     public GameObject enemyPrefab;
+    public int enemyScore;
     public float enemyHealth;
     public int enemyAttackDamage;
     public float enemyAttackCooldown;

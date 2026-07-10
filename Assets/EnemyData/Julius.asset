@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Julius
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyPrefab: {fileID: 5555380100468816658, guid: 01ec9f83743759344bf04c2f344f238c, type: 3}
-  enemyHealth: 200
+  enemyScore: 30
+  enemyHealth: 250
   enemyAttackDamage: 40
   enemyAttackCooldown: 2
   enemyAttackSpeed: 90

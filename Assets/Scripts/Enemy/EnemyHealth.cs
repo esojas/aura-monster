@@ -3,18 +3,18 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private EnemyData enemyData;
+    private GameScore gameScore;
     private float enemyHealth;
 
 
     public void TakeDamage(float damage)
     {
-        if (enemyHealth > 0)
+        enemyHealth -= damage;
+
+        if (enemyHealth <= 0)
         {
-            enemyHealth -= damage;
-        }
-        else
-        {
-            Invoke("Destroy", 0.1f);
+            gameScore.IncreaseScore(enemyData.enemyScore);
+            Invoke(nameof(Destroy), 0.1f);
         }
     }
 
@@ -26,6 +26,8 @@ public class EnemyHealth : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        GameObject gameScoreObject = GameObject.FindWithTag("GameManager");
+        gameScore = gameScoreObject.GetComponent<GameScore>();
         enemyHealth = enemyData.enemyHealth;
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.VectorGraphics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private MusicEvent musicEvent;
     [SerializeField] private float invincibilityDuration = 2f;
-
+    [SerializeField] private SceneLoader sceneLoader;
     public int Health => health;
     private bool invincible = false;
     private Coroutine invincibilityRoutine;
@@ -54,7 +55,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Death()
     {
-        Debug.LogError("Dead");
+        sceneLoader.RestartButton(); 
     }
 
     private void SetMaxHealth()

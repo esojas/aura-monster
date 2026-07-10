@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Meili
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyPrefab: {fileID: 5555380100468816658, guid: c9c6970f214a0b84eb254f968238c318, type: 3}
-  enemyHealth: 1000
+  enemyScore: 250
+  enemyHealth: 1300
   enemyAttackDamage: 60
   enemyAttackCooldown: 5
   enemyAttackSpeed: 15

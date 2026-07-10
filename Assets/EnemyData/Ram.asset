@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Ram
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyPrefab: {fileID: 5555380100468816658, guid: bf94d0a9be4915744acd25dc7c20a695, type: 3}
+  enemyScore: 15
   enemyHealth: 70
   enemyAttackDamage: 60
   enemyAttackCooldown: 4

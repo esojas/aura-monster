@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Anastasia
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyPrefab: {fileID: 5555380100468816658, guid: 08c8b82e655e9584c9f0548c7b246cdc, type: 3}
+  enemyScore: 20
   enemyHealth: 70
   enemyAttackDamage: 60
   enemyAttackCooldown: 4

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Shaula
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyPrefab: {fileID: 5555380100468816658, guid: 6a6ed3660d05f4446b8f7fc0b1a08869, type: 3}
-  enemyHealth: 130
+  enemyScore: 50
+  enemyHealth: 200
   enemyAttackDamage: 100
   enemyAttackCooldown: 5
-  enemyAttackSpeed: 80
+  enemyAttackSpeed: 90
   enemyAttackPrefab: {fileID: 4180887262053832644, guid: c03d673026691bc4b9e5445060d4c765, type: 3}
   spawnProbability: 20

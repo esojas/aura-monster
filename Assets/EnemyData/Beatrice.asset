@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Beatrice
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyPrefab: {fileID: 5555380100468816658, guid: 51b9f2275ad69e8419cd2fb251bad2bd, type: 3}
+  enemyScore: 10
   enemyHealth: 60
   enemyAttackDamage: 30
   enemyAttackCooldown: 2
